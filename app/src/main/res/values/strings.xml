@@ -1,0 +1,14 @@
+<resources>
+    <string name="app_name">Memo shop</string>
+    <string name="Usuario">Ingrese Usuario</string>
+    <string name="Comtrasena">Ingrese Contraseña</string>
+    <string name="Entrar">Entrar</string>
+    <string name="Resgistro">Resgistro</string>
+    <string name="Correo">Correo xx@xx</string>
+    <string name="Aceptar">Aceptar</string>
+    <string name="Cancelar">Cancelar</string>
+    <string name="Perfil">Ir a mi perfil</string>
+
+
+
+</resources>
