@@ -1,11 +1,13 @@
 package cualmemo.memoshop;
 
 import android.content.Intent;
+import android.support.annotation.IntegerRes;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.text.TextUtils;
 import android.util.Log;
 import android.view.View;
+import android.view.Window;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
@@ -17,16 +19,17 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
     String Array_contrasena[] = new String[100];
     String Array_correo[] = new String[100];
     int cont_usuario=0;
+    String usuario_in;
     Button bResgistro, bEntrar;
     EditText eUsario, eContrasena;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        this.supportRequestWindowFeature(Window.FEATURE_NO_TITLE);
         setContentView(R.layout.activity_login_activiy);
 
 
-        //base_datos_1[cont_usuario].llenar("s","s","s");
 
         bResgistro = (Button) findViewById(R.id.bRegistro);
         bEntrar = (Button) findViewById(R.id.bEntrar);
@@ -35,7 +38,7 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
 
         bResgistro.setOnClickListener(this);
         bEntrar.setOnClickListener(this);
-        Toast.makeText(this, "PASAS POR ACA ",Toast.LENGTH_SHORT).show();
+        //Toast.makeText(this, "PASAS POR ACA ",Toast.LENGTH_SHORT).show();
     }
 
     @Override
@@ -50,8 +53,12 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
             case R.id.bEntrar:
 
                 if(valida()){
-                    Toast.makeText(this, "Vas a entar", Toast.LENGTH_SHORT).show();
-                    Intent intent2 = new Intent(getApplicationContext(), MainActivity.class);
+                    //Toast.makeText(this, "Vas a entar"+usuario_in, Toast.LENGTH_SHORT).show();
+                   Intent intent2 = new Intent(getApplicationContext(), MainActivity.class);
+                    intent2.putExtra("usuario",Array_usuario[Integer.parseInt(usuario_in)]);
+                    intent2.putExtra("correo",Array_correo[Integer.parseInt(usuario_in)]);
+                    intent2.putExtra("usarioint",usuario_in);
+
                     startActivity(intent2);
                 }
                 else {
@@ -76,6 +83,7 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
             for (int i = 0; i<= cont_usuario; i++) {
                 if (temp_contrasena.equals(Array_contrasena[i]) && temp_usuario.equals(Array_usuario[i])) {
                     flag_valida =true;
+                    usuario_in=Integer.toString(i);
                     break;
                 }
                 else {
@@ -99,7 +107,7 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
             String user = data.getExtras().getString("usuario");
             String contrasena = data.getExtras().getString("contrasena");
             String correo= data.getExtras().getString("correo");
-            Toast.makeText(this, "user: "+user+" contrasena: "+contrasena+"correo: "+correo,Toast.LENGTH_SHORT).show();
+            //Toast.makeText(this, "user: "+user+" contrasena: "+contrasena+"correo: "+correo,Toast.LENGTH_SHORT).show();
 
             Array_usuario[cont_usuario]= user;
             Array_contrasena[cont_usuario]=contrasena;
