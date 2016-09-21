@@ -1,7 +1,10 @@
 package cualmemo.memoshop;
 
+import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.view.Menu;
+import android.view.MenuItem;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -29,11 +32,29 @@ public class PerfilActivity extends AppCompatActivity {
         Array_correo[usario2]=correo;
         Array_usuario[usario2]=user;
 
-        tvUsuario.setText("Usuario"+user);
-        tvCorreo.setText("Correo"+correo);
+        tvUsuario.setText("Usuario: "+user);
+        tvCorreo.setText("Correo: "+correo);
 
 
         //Toast.makeText(this,user+correo+usario, Toast.LENGTH_SHORT).show();
 
+    }
+
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+        getMenuInflater().inflate(R.menu.menu, menu);
+        return true;
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        int id=item.getItemId();
+        switch (id){
+            case R.id.mmain:
+                Intent intent= new Intent(this,MainActivity.class);
+                startActivity(intent);
+                break;
+        }
+        return super.onOptionsItemSelected(item);
     }
 }

@@ -4,4 +4,8 @@
         android:id="@+id/mPerfil"
         android:title="@string/Perfil"
         />
+    <item
+        android:id="@+id/mmain"
+        android:title="@string/Principal"
+        ></item>
 </menu>
