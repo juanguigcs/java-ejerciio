@@ -48,8 +48,11 @@ public class MainActivity extends AppCompatActivity {
                 intent.putExtra("usuario",Array_usuario[usario2]);
                 intent.putExtra("correo",Array_correo[usario2]);
                 intent.putExtra("usarioint",usario);
-
                 startActivity(intent);
+                break;
+            case R.id.mProd:
+                Intent intent2= new Intent(this,ProductosActivity.class);
+                startActivity(intent2);
                 break;
         }
       return super.onOptionsItemSelected(item);

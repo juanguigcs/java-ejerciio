@@ -8,4 +8,8 @@
         android:id="@+id/mmain"
         android:title="@string/Principal"
         ></item>
+    <item
+        android:id="@+id/mProd"
+        android:title="@string/CProductos"
+        ></item>
 </menu>
