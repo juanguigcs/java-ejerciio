@@ -10,6 +10,6 @@
     android:paddingTop="@dimen/activity_vertical_margin"
     tools:context="cualmemo.memoshop.ProductosActivity"
     android:id="@+id/pager"
-    android:background="#fbb815">
+    android:background="@color/pollitoa">
 
 </android.support.v4.view.ViewPager>
